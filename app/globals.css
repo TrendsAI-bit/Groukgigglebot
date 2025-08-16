@@ -44,10 +44,10 @@ textarea:focus {
   -webkit-appearance: none;
 }
 
-/* Custom focus styles without glare */
+/* Custom focus styles without glare or transitions */
 input:focus {
-  border-color: rgba(99, 102, 241, 0.6) !important;
   box-shadow: none !important;
+  transition: none !important;
 }
 
 select:focus {
@@ -57,6 +57,29 @@ select:focus {
 
 button:focus {
   box-shadow: none !important;
+}
+
+/* Prevent input flashing/blinking on type */
+input {
+  transition: none !important;
+}
+
+input::placeholder {
+  transition: none !important;
+  opacity: 0.6;
+}
+
+/* Disable webkit input styling that causes flashing */
+input::-webkit-input-placeholder {
+  transition: none !important;
+}
+
+input::-moz-placeholder {
+  transition: none !important;
+}
+
+input:-ms-input-placeholder {
+  transition: none !important;
 }
 
 .doodle {
