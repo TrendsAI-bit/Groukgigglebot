@@ -133,7 +133,7 @@ export default function HomePage() {
               <div key={i} className={clsx("rounded-xl px-4 py-4 sm:px-5 sm:py-5 max-w-[90%] sm:max-w-[85%] whitespace-pre-wrap font-kalam text-sm sm:text-base leading-relaxed", 
                 m.role === "user" 
                   ? "bg-cosmic-primary/15 ml-auto text-white border border-cosmic-primary/20" 
-                  : "bg-cosmic-secondary/10 mr-auto text-cosmic-glow border border-cosmic-secondary/20"
+                  : "bg-cosmic-secondary/10 mr-auto text-white border border-cosmic-secondary/20"
               )}>
                 {m.content}
               </div>
