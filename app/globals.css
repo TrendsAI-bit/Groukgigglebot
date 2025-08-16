@@ -28,61 +28,35 @@ body {
   backdrop-filter: blur(12px);
 }
 
-/* Remove ALL focus and tap effects completely */
+/* Remove tap highlight and focus glare effects */
 * {
-  -webkit-tap-highlight-color: transparent !important;
-  -webkit-focus-ring-color: transparent !important;
-  outline: none !important;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-input, textarea {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+  outline: none;
 }
 
 input:focus, 
 select:focus, 
 button:focus,
-textarea:focus,
-input:active,
-select:active,
-button:active,
-textarea:active {
+textarea:focus {
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
-  -webkit-appearance: none !important;
+  -webkit-appearance: none;
+}
+
+/* Custom focus styles without glare */
+input:focus {
+  border-color: rgba(99, 102, 241, 0.6) !important;
   box-shadow: none !important;
-  border-color: rgba(99, 102, 241, 0.4) !important;
-  background-color: rgba(13, 17, 23, 0.6) !important;
-  transition: none !important;
 }
 
-/* Completely disable any flashing or blinking effects */
-input {
-  caret-color: #6366f1;
-  animation: none !important;
+select:focus {
+  border-color: rgba(99, 102, 241, 0.6) !important;
+  box-shadow: none !important;
 }
 
-input::-webkit-input-placeholder {
-  transition: none !important;
-}
-
-input::-moz-placeholder {
-  transition: none !important;
-}
-
-input:-ms-input-placeholder {
-  transition: none !important;
-}
-
-input::placeholder {
-  transition: none !important;
+button:focus {
+  box-shadow: none !important;
 }
 
 .doodle {
