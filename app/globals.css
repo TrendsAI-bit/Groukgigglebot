@@ -49,3 +49,23 @@ body {
 .handwritten-2 { transform: rotate(-0.8deg); }
 .handwritten-3 { transform: rotate(1.2deg); }
 .handwritten-4 { transform: rotate(-0.3deg); }
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .space-glow {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.25), 0 0 30px rgba(99, 102, 241, 0.08);
+  }
+  
+  .cosmic-border {
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Improve touch targets */
+  input[type="range"] {
+    height: 24px;
+  }
+  
+  select, button, input {
+    min-height: 44px;
+  }
+}

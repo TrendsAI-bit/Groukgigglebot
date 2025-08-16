@@ -58,7 +58,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center p-4 md:p-8 overflow-hidden">
+    <main className="relative flex min-h-screen flex-col items-center justify-center p-3 sm:p-6 lg:p-8 overflow-hidden">
       <Galaxy 
         mouseInteraction={true}
         mouseRepulsion={true}
@@ -71,24 +71,26 @@ export default function HomePage() {
         rotationSpeed={0.02}
         transparent={false}
       />
-      <div className="max-w-3xl w-full relative z-10">
-        <header className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">
+      <div className="w-full max-w-4xl lg:max-w-5xl relative z-10 mx-auto">
+        <header className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 gap-4 sm:gap-0">
+          <div className="flex items-center gap-4">
+            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">
               <div className="h-full w-full rounded-full bg-white/10 flex items-center justify-center overflow-hidden backdrop-blur-sm">
-                <img src="/logotransparent.png" alt="Grouk" className="h-7 w-7 object-contain" />
+                <img src="/logotransparent.png" alt="Grouk" className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
               </div>
             </div>
-            <div className="font-bold text-xl text-white font-caveat">Grouk</div>
-            <div className="text-xs text-cosmic-accent bg-cosmic-primary/20 px-2 py-1 rounded-full">
-              cosmic edition
+            <div className="flex flex-col items-center sm:items-start">
+              <div className="font-bold text-2xl sm:text-3xl text-white font-caveat">Grouk</div>
+              <div className="text-xs text-cosmic-accent bg-cosmic-primary/20 px-3 py-1 rounded-full">
+                cosmic edition
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-2">
             <select 
               value={mode} 
               onChange={e=>setMode(e.target.value)} 
-              className="cosmic-border rounded-lg px-3 py-2 text-white text-xs focus:outline-none focus:ring-2 focus:ring-cosmic-primary"
+              className="cosmic-border rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cosmic-primary w-full sm:w-auto"
             >
               <option value="giggle">/giggle</option>
               <option value="roast_gently">/roast_cold</option>
@@ -97,35 +99,37 @@ export default function HomePage() {
               <option value="deadpan">/void_stare</option>
               <option value="serious">/mission_mode</option>
             </select>
-            <label className="hidden sm:flex items-center gap-1 text-cosmic-accent text-xs">
-              humor
-              <input 
-                type="range" 
-                min={0} 
-                max={3} 
-                value={humor} 
-                onChange={e=>setHumor(parseInt(e.target.value))}
-                className="w-16 accent-cosmic-primary"
-              />
-            </label>
-            <label className="hidden sm:flex items-center gap-1 text-cosmic-accent text-xs">
-              cold
-              <input 
-                type="range" 
-                min={0} 
-                max={2} 
-                value={spice} 
-                onChange={e=>setSpice(parseInt(e.target.value))}
-                className="w-16 accent-cosmic-secondary"
-              />
-            </label>
+            <div className="flex items-center gap-4 sm:gap-2">
+              <label className="flex items-center gap-2 text-cosmic-accent text-sm">
+                humor
+                <input 
+                  type="range" 
+                  min={0} 
+                  max={3} 
+                  value={humor} 
+                  onChange={e=>setHumor(parseInt(e.target.value))}
+                  className="w-20 accent-cosmic-primary"
+                />
+              </label>
+              <label className="flex items-center gap-2 text-cosmic-accent text-sm">
+                cold
+                <input 
+                  type="range" 
+                  min={0} 
+                  max={2} 
+                  value={spice} 
+                  onChange={e=>setSpice(parseInt(e.target.value))}
+                  className="w-20 accent-cosmic-secondary"
+                />
+              </label>
+            </div>
           </div>
         </header>
 
-        <section className="cosmic-border rounded-2xl p-4 md:p-6 space-glow">
-          <div className="space-y-3">
+        <section className="cosmic-border rounded-2xl p-4 sm:p-6 lg:p-8 space-glow min-h-[70vh] sm:min-h-[60vh] flex flex-col">
+          <div className="flex-1 space-y-4 sm:space-y-5 overflow-y-auto max-h-[60vh] sm:max-h-[50vh] pr-2">
             {history.map((m, i) => (
-              <div key={i} className={clsx("rounded-xl px-4 py-3 max-w-[80%] whitespace-pre-wrap border font-kalam", 
+              <div key={i} className={clsx("rounded-xl px-4 py-4 sm:px-5 sm:py-5 max-w-[90%] sm:max-w-[85%] whitespace-pre-wrap border font-kalam text-sm sm:text-base leading-relaxed", 
                 m.role === "user" 
                   ? "bg-cosmic-primary/20 ml-auto border-cosmic-primary/30 text-white transform rotate-1" 
                   : "bg-cosmic-secondary/10 mr-auto border-cosmic-secondary/30 text-cosmic-glow transform -rotate-1"
@@ -136,9 +140,9 @@ export default function HomePage() {
             <div ref={endRef} />
           </div>
 
-          <div className="mt-4 flex gap-2">
+          <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-2">
             <input
-              className="flex-1 cosmic-border rounded-xl px-4 py-3 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-cosmic-primary font-kalam"
+              className="flex-1 cosmic-border rounded-xl px-4 py-4 sm:px-5 sm:py-3 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-cosmic-primary font-kalam text-base"
               placeholder="Query the cosmic void..."
               value={input}
               onChange={e=>setInput(e.target.value)}
@@ -147,13 +151,13 @@ export default function HomePage() {
             <button 
               onClick={send} 
               disabled={loading} 
-              className="cosmic-border rounded-xl px-5 py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-caveat transform rotate-1"
+              className="cosmic-border rounded-xl px-6 py-4 sm:px-5 sm:py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-caveat transform rotate-1 text-base sm:text-sm whitespace-nowrap"
             >
               {loading ? "Calculating..." : "Launch"}
             </button>
           </div>
 
-          <p className="mt-3 text-xs text-gray-500 text-center">
+          <p className="mt-4 text-xs sm:text-sm text-gray-500 text-center font-kalam">
             Grouk v2.0: Now with 47% more existential dread and cosmic humor. Results may vary across dimensions.
           </p>
         </section>
