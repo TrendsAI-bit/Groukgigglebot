@@ -7,6 +7,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'kalam': ['Kalam', 'cursive'],
+        'caveat': ['Caveat', 'cursive'],
+      },
       colors: {
         ink: "#0a0a0a",
         space: {

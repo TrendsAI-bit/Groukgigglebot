@@ -49,3 +49,9 @@ body {
   66% { transform: rotate(2deg) scale(1.02); }
   100% { transform: rotate(0deg) scale(1); }
 }
+
+/* Handwritten style variations */
+.handwritten-1 { transform: rotate(0.5deg); }
+.handwritten-2 { transform: rotate(-0.8deg); }
+.handwritten-3 { transform: rotate(1.2deg); }
+.handwritten-4 { transform: rotate(-0.3deg); }

@@ -62,11 +62,11 @@ export default function HomePage() {
         <header className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">
-              <div className="h-full w-full rounded-full bg-space-dark flex items-center justify-center overflow-hidden">
-                <img src="/logotransparent.png" alt="Grouk" className="h-8 w-8 object-contain" />
+              <div className="h-full w-full rounded-full bg-white/10 flex items-center justify-center overflow-hidden backdrop-blur-sm">
+                <img src="/logotransparent.png" alt="Grouk" className="h-7 w-7 object-contain" />
               </div>
             </div>
-            <div className="font-bold text-xl text-white">Grouk</div>
+            <div className="font-bold text-xl text-white font-caveat">Grouk</div>
             <div className="text-xs text-cosmic-accent bg-cosmic-primary/20 px-2 py-1 rounded-full">
               cosmic edition
             </div>
@@ -112,10 +112,10 @@ export default function HomePage() {
         <section className="cosmic-border rounded-2xl p-4 md:p-6 space-glow">
           <div className="space-y-3">
             {history.map((m, i) => (
-              <div key={i} className={clsx("rounded-xl px-4 py-3 max-w-[80%] whitespace-pre-wrap border", 
+              <div key={i} className={clsx("rounded-xl px-4 py-3 max-w-[80%] whitespace-pre-wrap border font-kalam", 
                 m.role === "user" 
-                  ? "bg-cosmic-primary/20 ml-auto border-cosmic-primary/30 text-white" 
-                  : "bg-cosmic-secondary/10 mr-auto border-cosmic-secondary/30 text-cosmic-glow"
+                  ? "bg-cosmic-primary/20 ml-auto border-cosmic-primary/30 text-white transform rotate-1" 
+                  : "bg-cosmic-secondary/10 mr-auto border-cosmic-secondary/30 text-cosmic-glow transform -rotate-1"
               )}>
                 {m.content}
               </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
 
           <div className="mt-4 flex gap-2">
             <input
-              className="flex-1 cosmic-border rounded-xl px-4 py-3 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-cosmic-primary"
+              className="flex-1 cosmic-border rounded-xl px-4 py-3 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-cosmic-primary font-kalam"
               placeholder="Query the cosmic void..."
               value={input}
               onChange={e=>setInput(e.target.value)}
@@ -134,7 +134,7 @@ export default function HomePage() {
             <button 
               onClick={send} 
               disabled={loading} 
-              className="cosmic-border rounded-xl px-5 py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="cosmic-border rounded-xl px-5 py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-caveat transform rotate-1"
             >
               {loading ? "Calculating..." : "Launch"}
             </button>
