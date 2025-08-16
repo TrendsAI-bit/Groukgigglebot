@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 
-type Msg = { role: "user"|"assistant"; content: string };
+type Msg = { role: "user" | "assistant"; content: string };
 
 export default function HomePage() {
   const [history, setHistory] = useState<Msg[]>([
@@ -20,7 +20,7 @@ export default function HomePage() {
 
   async function send() {
     if (!input.trim() || loading) return;
-    const newHistory = [...history, { role: "user", content: input }];
+    const newHistory: Msg[] = [...history, { role: "user" as const, content: input }];
     setHistory(newHistory);
     setInput("");
     setLoading(true);
@@ -32,7 +32,7 @@ export default function HomePage() {
     });
 
     if (!res.ok || !res.body) {
-      setHistory(h => [...h, { role: "assistant", content: "Uh oh, my giggle engine sneezed. Try again?" }]);
+      setHistory(h => [...h, { role: "assistant" as const, content: "Uh oh, my giggle engine sneezed. Try again?" }]);
       setLoading(false);
       return;
     }
@@ -40,7 +40,7 @@ export default function HomePage() {
     const reader = res.body.getReader();
     const decoder = new TextDecoder();
     let assistantText = "";
-    setHistory(h => [...h, { role: "assistant", content: "" }]);
+    setHistory(h => [...h, { role: "assistant" as const, content: "" }]);
 
     while (true) {
       const { value, done } = await reader.read();
@@ -48,7 +48,7 @@ export default function HomePage() {
       assistantText += decoder.decode(value, { stream: true });
       setHistory(h => {
         const copy = [...h];
-        copy[copy.length - 1] = { role: "assistant", content: assistantText };
+        copy[copy.length - 1] = { role: "assistant" as const, content: assistantText };
         return copy;
       });
     }
