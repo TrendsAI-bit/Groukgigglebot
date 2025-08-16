@@ -7,7 +7,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 export default function HomePage() {
   const [history, setHistory] = useState<Msg[]>([
-    { role: "assistant", content: "Hi, I'm Grouk — Grok, but giggly. Ask me anything 😄" }
+    { role: "assistant", content: "Greetings, carbon-based life form. I'm Grouk — like Grok, but with the emotional warmth of deep space. What cosmic mystery shall we unravel today? 🌌" }
   ]);
   const [input, setInput] = useState("");
   const [mode, setMode] = useState("giggle");
@@ -57,36 +57,65 @@ export default function HomePage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-4 md:p-8">
+    <main className="cosmic-bg flex min-h-screen flex-col items-center p-4 md:p-8">
       <div className="max-w-3xl w-full">
         <header className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <img src="/grouk-logo.svg" alt="Grouk" className="h-10 w-10 doodle rounded-full bg-white p-1" />
-            <div className="font-bold text-xl">Grouk</div>
+            <div className="h-10 w-10 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">
+              <div className="h-full w-full rounded-full bg-space-dark flex items-center justify-center">
+                <span className="text-cosmic-accent font-bold text-lg">G</span>
+              </div>
+            </div>
+            <div className="font-bold text-xl text-white">Grouk</div>
+            <div className="text-xs text-cosmic-accent bg-cosmic-primary/20 px-2 py-1 rounded-full">
+              cosmic edition
+            </div>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <select value={mode} onChange={e=>setMode(e.target.value)} className="doodle rounded-blob px-3 py-2">
+            <select 
+              value={mode} 
+              onChange={e=>setMode(e.target.value)} 
+              className="cosmic-border rounded-lg px-3 py-2 text-white text-xs focus:outline-none focus:ring-2 focus:ring-cosmic-primary"
+            >
               <option value="giggle">/giggle</option>
-              <option value="roast_gently">/roast_gently</option>
-              <option value="dadjoke">/dadjoke</option>
-              <option value="haiku">/haiku</option>
-              <option value="deadpan">/deadpan</option>
-              <option value="serious">/serious</option>
+              <option value="roast_gently">/roast_cold</option>
+              <option value="dadjoke">/cosmic_dad</option>
+              <option value="haiku">/space_haiku</option>
+              <option value="deadpan">/void_stare</option>
+              <option value="serious">/mission_mode</option>
             </select>
-            <label className="hidden sm:flex items-center gap-1">humor
-              <input type="range" min={0} max={3} value={humor} onChange={e=>setHumor(parseInt(e.target.value))} />
+            <label className="hidden sm:flex items-center gap-1 text-cosmic-accent text-xs">
+              humor
+              <input 
+                type="range" 
+                min={0} 
+                max={3} 
+                value={humor} 
+                onChange={e=>setHumor(parseInt(e.target.value))}
+                className="w-16 accent-cosmic-primary"
+              />
             </label>
-            <label className="hidden sm:flex items-center gap-1">spice
-              <input type="range" min={0} max={2} value={spice} onChange={e=>setSpice(parseInt(e.target.value))} />
+            <label className="hidden sm:flex items-center gap-1 text-cosmic-accent text-xs">
+              cold
+              <input 
+                type="range" 
+                min={0} 
+                max={2} 
+                value={spice} 
+                onChange={e=>setSpice(parseInt(e.target.value))}
+                className="w-16 accent-cosmic-secondary"
+              />
             </label>
           </div>
         </header>
 
-        <section className="doodle rounded-blob p-4 md:p-6 bg-white">
+        <section className="cosmic-border rounded-2xl p-4 md:p-6 space-glow">
           <div className="space-y-3">
             {history.map((m, i) => (
-              <div key={i} className={clsx("rounded-2xl px-4 py-3 max-w-[80%] whitespace-pre-wrap", 
-                m.role === "user" ? "bg-sky/50 ml-auto border-2 border-ink" : "bg-capy/60 mr-auto border-2 border-ink"
+              <div key={i} className={clsx("rounded-xl px-4 py-3 max-w-[80%] whitespace-pre-wrap border", 
+                m.role === "user" 
+                  ? "bg-cosmic-primary/20 ml-auto border-cosmic-primary/30 text-white" 
+                  : "bg-cosmic-secondary/10 mr-auto border-cosmic-secondary/30 text-cosmic-glow"
               )}>
                 {m.content}
               </div>
@@ -96,19 +125,23 @@ export default function HomePage() {
 
           <div className="mt-4 flex gap-2">
             <input
-              className="flex-1 doodle rounded-blob px-4 py-3 outline-none"
-              placeholder="Ask me anything…"
+              className="flex-1 cosmic-border rounded-xl px-4 py-3 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-cosmic-primary"
+              placeholder="Query the cosmic void..."
               value={input}
               onChange={e=>setInput(e.target.value)}
               onKeyDown={(e)=>{ if (e.key==="Enter" && !e.shiftKey) send(); }}
             />
-            <button onClick={send} disabled={loading} className="doodle rounded-blob px-5 py-3 bg-capy wobble disabled:opacity-60">
-              {loading ? "Thinking…" : "Send"}
+            <button 
+              onClick={send} 
+              disabled={loading} 
+              className="cosmic-border rounded-xl px-5 py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? "Calculating..." : "Launch"}
             </button>
           </div>
 
-          <p className="mt-3 text-xs opacity-70">
-            By using Grouk you agree to our pleasant lack of refunds for groans. Not financial, medical, or legal advice.
+          <p className="mt-3 text-xs text-gray-500 text-center">
+            🚀 Grouk v2.0: Now with 47% more existential dread and cosmic humor. Results may vary across dimensions.
           </p>
         </section>
       </div>

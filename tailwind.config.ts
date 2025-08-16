@@ -9,9 +9,20 @@ const config: Config = {
     extend: {
       colors: {
         ink: "#0a0a0a",
-        capy: "#C6F8A5",
-        sky: "#BBDDFF",
-        blush: "#FFBFD4"
+        space: {
+          dark: "#0D1117",
+          darker: "#010409",
+          blue: "#1f6feb",
+          purple: "#8b5cf6",
+          cyan: "#39d353",
+          orange: "#f85149"
+        },
+        cosmic: {
+          primary: "#6366f1",
+          secondary: "#8b5cf6", 
+          accent: "#06b6d4",
+          glow: "#10b981"
+        }
       },
       boxShadow: {
         doodle: "2px 2px 0 0 #0a0a0a",
