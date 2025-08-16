@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import Galaxy from "../components/Galaxy";
+import LightRays from "../components/LightRays";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -72,11 +73,29 @@ export default function HomePage() {
         transparent={false}
       />
       
-      {/* Centered Logo Header */}
+      {/* Centered Logo Header with Spotlight */}
       <div className="relative z-10 flex flex-col items-center mt-8 sm:mt-12 mb-8 sm:mb-12">
-        <div className="flex items-center gap-4 mb-6">
+        {/* Light Rays Spotlight */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#6366f1"
+            raysSpeed={0.8}
+            lightSpread={0.6}
+            rayLength={1.5}
+            followMouse={false}
+            mouseInfluence={0}
+            noiseAmount={0.05}
+            distortion={0.02}
+            pulsating={true}
+            fadeDistance={0.8}
+            saturation={0.9}
+          />
+        </div>
+        
+        <div className="flex items-center gap-4 mb-6 relative z-20">
           <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-1 shadow-2xl">
-            <div className="h-full w-full rounded-full bg-white/90 flex items-center justify-center overflow-hidden shadow-inner">
+            <div className="h-full w-full rounded-full bg-white/95 flex items-center justify-center overflow-hidden shadow-inner">
               <img src="/logotransparent.png" alt="Grouk" className="h-12 w-12 sm:h-14 sm:w-14 object-contain filter drop-shadow-sm" />
             </div>
           </div>
@@ -84,7 +103,7 @@ export default function HomePage() {
         </div>
         
         {/* Controls Row */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 relative z-20">
           <select 
             value={mode} 
             onChange={e=>setMode(e.target.value)} 
