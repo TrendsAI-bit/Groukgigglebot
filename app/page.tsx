@@ -58,7 +58,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center p-3 sm:p-6 lg:p-8 overflow-hidden">
+    <main className="relative flex min-h-screen flex-col items-center p-3 sm:p-6 lg:p-8 overflow-hidden">
       <Galaxy 
         mouseInteraction={true}
         mouseRepulsion={true}
@@ -71,68 +71,69 @@ export default function HomePage() {
         rotationSpeed={0.02}
         transparent={false}
       />
-      <div className="w-full max-w-4xl lg:max-w-5xl relative z-10 mx-auto">
-        <header className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 gap-4 sm:gap-0">
-          <div className="flex items-center gap-4">
-            <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">
-              <div className="h-full w-full rounded-full bg-white/10 flex items-center justify-center overflow-hidden backdrop-blur-sm">
-                <img src="/logotransparent.png" alt="Grouk" className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
-              </div>
-            </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <div className="font-bold text-2xl sm:text-3xl text-white font-caveat">Grouk</div>
-              <div className="text-xs text-cosmic-accent bg-cosmic-primary/20 px-3 py-1 rounded-full">
-                cosmic edition
-              </div>
+      
+      {/* Centered Logo Header */}
+      <div className="relative z-10 flex flex-col items-center mt-8 sm:mt-12 mb-8 sm:mb-12">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-1">
+            <div className="h-full w-full rounded-full bg-space-dark flex items-center justify-center overflow-hidden">
+              <img src="/logotransparent.png" alt="Grouk" className="h-12 w-12 sm:h-14 sm:w-14 object-contain" />
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-2">
-            <select 
-              value={mode} 
-              onChange={e=>setMode(e.target.value)} 
-              className="cosmic-border rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cosmic-primary w-full sm:w-auto"
-            >
-              <option value="giggle">/giggle</option>
-              <option value="roast_gently">/roast_cold</option>
-              <option value="dadjoke">/cosmic_dad</option>
-              <option value="haiku">/space_haiku</option>
-              <option value="deadpan">/void_stare</option>
-              <option value="serious">/mission_mode</option>
-            </select>
-            <div className="flex items-center gap-4 sm:gap-2">
-              <label className="flex items-center gap-2 text-cosmic-accent text-sm">
-                humor
-                <input 
-                  type="range" 
-                  min={0} 
-                  max={3} 
-                  value={humor} 
-                  onChange={e=>setHumor(parseInt(e.target.value))}
-                  className="w-20 accent-cosmic-primary"
-                />
-              </label>
-              <label className="flex items-center gap-2 text-cosmic-accent text-sm">
-                cold
-                <input 
-                  type="range" 
-                  min={0} 
-                  max={2} 
-                  value={spice} 
-                  onChange={e=>setSpice(parseInt(e.target.value))}
-                  className="w-20 accent-cosmic-secondary"
-                />
-              </label>
-            </div>
+          <div className="font-bold text-4xl sm:text-5xl text-white font-caveat">Grouk</div>
+        </div>
+        
+        {/* Controls Row */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <select 
+            value={mode} 
+            onChange={e=>setMode(e.target.value)} 
+            className="cosmic-border rounded-lg px-3 py-2 text-white text-sm focus:outline-none bg-space-dark/50 backdrop-blur-sm border-cosmic-primary/30"
+          >
+            <option value="giggle">/giggle</option>
+            <option value="roast_gently">/roast_cold</option>
+            <option value="dadjoke">/cosmic_dad</option>
+            <option value="haiku">/space_haiku</option>
+            <option value="deadpan">/void_stare</option>
+            <option value="serious">/mission_mode</option>
+          </select>
+          
+          <div className="flex items-center gap-3 text-sm">
+            <label className="flex items-center gap-2 text-cosmic-accent">
+              humor
+              <input 
+                type="range" 
+                min={0} 
+                max={3} 
+                value={humor} 
+                onChange={e=>setHumor(parseInt(e.target.value))}
+                className="w-16 accent-cosmic-primary"
+              />
+            </label>
+            <label className="flex items-center gap-2 text-cosmic-accent">
+              cold
+              <input 
+                type="range" 
+                min={0} 
+                max={2} 
+                value={spice} 
+                onChange={e=>setSpice(parseInt(e.target.value))}
+                className="w-16 accent-cosmic-secondary"
+              />
+            </label>
           </div>
-        </header>
+        </div>
+      </div>
 
-        <section className="cosmic-border rounded-2xl p-4 sm:p-6 lg:p-8 space-glow min-h-[70vh] sm:min-h-[60vh] flex flex-col">
-          <div className="flex-1 space-y-4 sm:space-y-5 overflow-y-auto max-h-[60vh] sm:max-h-[50vh] pr-2">
+      <div className="w-full max-w-4xl lg:max-w-5xl relative z-10 mx-auto flex-1 flex flex-col">
+
+        <section className="cosmic-border rounded-2xl p-4 sm:p-6 lg:p-8 min-h-[50vh] flex flex-col bg-space-dark/30 backdrop-blur-lg border-cosmic-primary/20">
+          <div className="flex-1 space-y-4 sm:space-y-5 overflow-y-auto max-h-[45vh] pr-2 mb-6">
             {history.map((m, i) => (
-              <div key={i} className={clsx("rounded-xl px-4 py-4 sm:px-5 sm:py-5 max-w-[90%] sm:max-w-[85%] whitespace-pre-wrap border font-kalam text-sm sm:text-base leading-relaxed", 
+              <div key={i} className={clsx("rounded-xl px-4 py-4 sm:px-5 sm:py-5 max-w-[90%] sm:max-w-[85%] whitespace-pre-wrap font-kalam text-sm sm:text-base leading-relaxed", 
                 m.role === "user" 
-                  ? "bg-cosmic-primary/20 ml-auto border-cosmic-primary/30 text-white transform rotate-1" 
-                  : "bg-cosmic-secondary/10 mr-auto border-cosmic-secondary/30 text-cosmic-glow transform -rotate-1"
+                  ? "bg-cosmic-primary/15 ml-auto text-white border border-cosmic-primary/20" 
+                  : "bg-cosmic-secondary/10 mr-auto text-cosmic-glow border border-cosmic-secondary/20"
               )}>
                 {m.content}
               </div>
@@ -140,9 +141,9 @@ export default function HomePage() {
             <div ref={endRef} />
           </div>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-2">
             <input
-              className="flex-1 cosmic-border rounded-xl px-4 py-4 sm:px-5 sm:py-3 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-cosmic-primary font-kalam text-base"
+              className="flex-1 rounded-xl px-4 py-4 sm:px-5 sm:py-3 outline-none text-white placeholder-gray-400 font-kalam text-base bg-space-dark/50 border border-cosmic-primary/30 focus:border-cosmic-primary/60 transition-colors"
               placeholder="Query the cosmic void..."
               value={input}
               onChange={e=>setInput(e.target.value)}
@@ -151,14 +152,14 @@ export default function HomePage() {
             <button 
               onClick={send} 
               disabled={loading} 
-              className="cosmic-border rounded-xl px-6 py-4 sm:px-5 sm:py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-caveat transform rotate-1 text-base sm:text-sm whitespace-nowrap"
+              className="rounded-xl px-6 py-4 sm:px-5 sm:py-3 bg-gradient-to-r from-cosmic-primary to-cosmic-secondary text-white font-medium hover:from-cosmic-secondary hover:to-cosmic-primary transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-caveat text-base sm:text-sm whitespace-nowrap border border-cosmic-primary/30"
             >
               {loading ? "Calculating..." : "Launch"}
             </button>
           </div>
 
-          <p className="mt-4 text-xs sm:text-sm text-gray-500 text-center font-kalam">
-            Grouk v2.0: Now with 47% more existential dread and cosmic humor. Results may vary across dimensions.
+          <p className="mt-4 text-xs sm:text-sm text-gray-500 text-center font-kalam opacity-70">
+            Grouk v2.0: Now with 47% more existential dread and cosmic humor.
           </p>
         </section>
       </div>
