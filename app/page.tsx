@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
+import Galaxy from "../components/Galaxy";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -57,8 +58,20 @@ export default function HomePage() {
   }
 
   return (
-    <main className="cosmic-bg flex min-h-screen flex-col items-center p-4 md:p-8">
-      <div className="max-w-3xl w-full">
+    <main className="relative flex min-h-screen flex-col items-center p-4 md:p-8 overflow-hidden">
+      <Galaxy 
+        mouseInteraction={true}
+        mouseRepulsion={true}
+        density={0.8}
+        glowIntensity={0.4}
+        saturation={0.6}
+        hueShift={220}
+        speed={0.3}
+        twinkleIntensity={0.5}
+        rotationSpeed={0.02}
+        transparent={false}
+      />
+      <div className="max-w-3xl w-full relative z-10">
         <header className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">

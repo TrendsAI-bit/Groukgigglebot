@@ -12,16 +12,10 @@ html, body {
 }
 
 body {
-  background: linear-gradient(135deg, #0D1117 0%, #161b22 50%, #21262d 100%);
+  background: #0D1117;
   color: var(--ink);
   font-feature-settings: "ss01" on, "rlig" on, "calt" on;
   min-height: 100vh;
-}
-
-.cosmic-bg {
-  background: radial-gradient(ellipse at top, #1f6feb20 0%, transparent 50%),
-              radial-gradient(ellipse at bottom right, #8b5cf620 0%, transparent 50%),
-              linear-gradient(135deg, #0D1117 0%, #161b22 50%, #21262d 100%);
 }
 
 .space-glow {
@@ -30,8 +24,8 @@ body {
 
 .cosmic-border {
   border: 1px solid rgba(99, 102, 241, 0.3);
-  background: rgba(13, 17, 23, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
 }
 
 .doodle {
