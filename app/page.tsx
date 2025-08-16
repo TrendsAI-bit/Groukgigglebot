@@ -7,9 +7,7 @@ import Galaxy from "../components/Galaxy";
 type Msg = { role: "user" | "assistant"; content: string };
 
 export default function HomePage() {
-  const [history, setHistory] = useState<Msg[]>([
-    { role: "assistant", content: "Greetings, carbon-based life form. I'm Grouk — like Grok, but with the emotional warmth of deep space. What cosmic mystery shall we unravel today?" }
-  ]);
+  const [history, setHistory] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [mode, setMode] = useState("giggle");
   const [humor, setHumor] = useState(2);
@@ -143,7 +141,7 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-2">
             <input
-              className="flex-1 rounded-xl px-4 py-4 sm:px-5 sm:py-3 outline-none text-white placeholder-gray-400 font-kalam text-base bg-space-dark/50 border border-cosmic-primary/30 focus:border-cosmic-primary/60 transition-colors"
+              className="flex-1 rounded-xl px-4 py-4 sm:px-5 sm:py-3 outline-none text-white placeholder-gray-400 font-kalam text-base bg-space-dark/50 border border-cosmic-primary/30"
               placeholder="Query the cosmic void..."
               value={input}
               onChange={e=>setInput(e.target.value)}
