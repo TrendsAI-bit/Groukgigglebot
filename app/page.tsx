@@ -75,12 +75,12 @@ export default function HomePage() {
       {/* Centered Logo Header */}
       <div className="relative z-10 flex flex-col items-center mt-8 sm:mt-12 mb-8 sm:mb-12">
         <div className="flex items-center gap-4 mb-6">
-          <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-1">
-            <div className="h-full w-full rounded-full bg-space-dark flex items-center justify-center overflow-hidden">
-              <img src="/logotransparent.png" alt="Grouk" className="h-12 w-12 sm:h-14 sm:w-14 object-contain" />
+          <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-1 shadow-2xl">
+            <div className="h-full w-full rounded-full bg-white/90 flex items-center justify-center overflow-hidden shadow-inner">
+              <img src="/logotransparent.png" alt="Grouk" className="h-12 w-12 sm:h-14 sm:w-14 object-contain filter drop-shadow-sm" />
             </div>
           </div>
-          <div className="font-bold text-4xl sm:text-5xl text-white font-caveat">Grouk</div>
+          <div className="font-bold text-4xl sm:text-5xl text-white font-caveat drop-shadow-lg">Grouk</div>
         </div>
         
         {/* Controls Row */}
@@ -162,6 +162,21 @@ export default function HomePage() {
             Grouk v2.0: Now with 47% more existential dread and cosmic humor.
           </p>
         </section>
+
+        {/* Attribution */}
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-400 font-kalam opacity-60">
+            Made by{' '}
+            <a 
+              href="https://x.com/Bonkshen2" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-cosmic-accent hover:text-cosmic-primary transition-colors duration-200 underline decoration-dotted underline-offset-2"
+            >
+              @Bonkshen2
+            </a>
+          </p>
+        </div>
       </div>
     </main>
   );
