@@ -7,7 +7,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 export default function HomePage() {
   const [history, setHistory] = useState<Msg[]>([
-    { role: "assistant", content: "Greetings, carbon-based life form. I'm Grouk — like Grok, but with the emotional warmth of deep space. What cosmic mystery shall we unravel today? 🌌" }
+    { role: "assistant", content: "Greetings, carbon-based life form. I'm Grouk — like Grok, but with the emotional warmth of deep space. What cosmic mystery shall we unravel today?" }
   ]);
   const [input, setInput] = useState("");
   const [mode, setMode] = useState("giggle");
@@ -62,8 +62,8 @@ export default function HomePage() {
         <header className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full bg-gradient-to-r from-cosmic-primary to-cosmic-secondary p-0.5 space-glow">
-              <div className="h-full w-full rounded-full bg-space-dark flex items-center justify-center">
-                <span className="text-cosmic-accent font-bold text-lg">G</span>
+              <div className="h-full w-full rounded-full bg-space-dark flex items-center justify-center overflow-hidden">
+                <img src="/logotransparent.png" alt="Grouk" className="h-8 w-8 object-contain" />
               </div>
             </div>
             <div className="font-bold text-xl text-white">Grouk</div>
@@ -141,7 +141,7 @@ export default function HomePage() {
           </div>
 
           <p className="mt-3 text-xs text-gray-500 text-center">
-            🚀 Grouk v2.0: Now with 47% more existential dread and cosmic humor. Results may vary across dimensions.
+            Grouk v2.0: Now with 47% more existential dread and cosmic humor. Results may vary across dimensions.
           </p>
         </section>
       </div>
